@@ -21,7 +21,7 @@ Lineup.add({
 		instagram: { type: Types.Url, initial: true },
 		vimeo: { type: Types.Url, initial: true },
 		youtube: { type: Types.Url, initial: true },
-		dribble: { type: Types.Url, initial: true },
+		dribbble: { type: Types.Url, initial: true },
 		behance: { type: Types.Url, initial: true }
 	}
 );
