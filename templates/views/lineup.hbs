@@ -1,0 +1,80 @@
+{{!< default}}
+<div class="container lineup">
+	<div class="row">
+		<div class="col s12 center-align">
+			<h2 class="host">
+				<a href="#">
+					<img src="/images/speaker.jpg" alt="" />
+					<span class="breathe"></span>
+					<br class="hide-on-med-and-up">
+					<br class="hide-on-med-and-up">
+					Jane Doe (host)
+				</a>
+			</h2>
+		</div>
+	</div>
+	<div class="row">
+
+		{{#each lineup}}
+			<div class="col s12 l3 item">
+				<a href="#modal{{@index}}" class="thumbnail">
+					<img src="{{thumbnail_blue.url}}" alt="{{name}}" />
+					<img src="{{thumbnail_color.url}}" alt="{{name}}" class="thumbnail-color" />
+				</a>
+				<h2>
+					<a href="#modal{{@index}}">
+						{{name}}
+					</a>
+				</h2>
+				<div id="modal{{@index}}" class="modal">
+						<div class="col s12 l5 image">
+							<img src="{{thumbnail_color.url}}" alt="{{title}}" />
+						</div>
+						<div class="col s12 l7 text">
+							<h4>{{name}}</h4>
+							<h5><a href="{{link}}">{{link}}</a></h5>
+							{{{bio}}}
+							<p>
+								{{#if facebook}}
+									<a href="{{facebook}}" target="_blank">
+										<i class="fa fa-facebook"></i>
+									</a>
+								{{/if}}
+								{{#if twitter}}
+									<a href="{{twitter}}" target="_blank">
+										<i class="fa fa-twitter"></i>
+									</a>
+								{{/if}}
+								{{#if instagram}}
+									<a href="{{instagram}}" target="_blank">
+										<i class="fa fa-instagram"></i>
+									</a>
+								{{/if}}
+								{{#if vimeo}}
+									<a href="{{vimeo}}" target="_blank">
+										<i class="fa fa-vimeo"></i>
+									</a>
+								{{/if}}
+								{{#if youtube}}
+									<a href="{{youtube}}" target="_blank">
+										<i class="fa fa-youtube"></i>
+									</a>
+								{{/if}}
+								{{#if dribbble}}
+									<a href="{{dribbble}}" target="_blank">
+										<i class="fa fa-dribbble"></i>
+									</a>
+								{{/if}}
+								{{#if behance}}
+									<a href="{{behance}}" target="_blank">
+										<i class="fa fa-behance"></i>
+									</a>
+								{{/if}}
+							</p>
+						</div>
+				</div>
+			</div>
+		{{/each}}
+
+	</div>
+</div>

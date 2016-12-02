@@ -1,0 +1,28 @@
+<nav>
+  <div class="nav-wrapper nav-header">
+    <a href="/" class="brand-logo">
+			<img src="/images/blend-logo.jpg" alt="BLEND logo" />
+		</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+			{{#each navLinks}}
+				{{#ifeq ../section class}}
+					<li class="nav nav-{{class}} nav-current">
+						<a href="{{link}}">{{label}}</a>
+					</li>
+				{{else}}
+					<li class="nav nav-{{class}}">
+						<a href="{{link}}">{{label}}</a>
+					</li>
+				{{/ifeq}}
+			{{/each}}
+
+			<li class="nav-social">
+				{{#each navSocial}}
+					<a href="{{link}}" target="_blank"><i class="fa fa-{{site}}"></i></a>
+				{{/each}}
+			</li>
+
+    </ul>
+  </div>
+</nav>

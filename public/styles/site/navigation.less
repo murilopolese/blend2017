@@ -1,0 +1,81 @@
+// NAVIGATION
+nav {
+	background-color: @light-blue;
+	height: 56px;
+	margin-bottom: 56px;
+	box-shadow: none;
+	position: relative;
+	z-index: 10;
+	li {
+		text-transform: uppercase;
+		a {
+			font-family: 'Futuraround medium', sans-serif;
+			font-size: 17px;
+			line-height: 17px;
+			letter-spacing: 0.1em;
+			padding-left: 25px;
+			padding-right: 25px;
+			padding-top: 24px;
+			padding-bottom: 15px;
+			transition: padding 0.2s ease-out;
+		}
+		a:hover {
+			padding-top: 75px;
+		}
+	}
+	.nav-current {
+		font-weight: bold;
+		a {
+			padding-top: 75px;
+		}
+	}
+	.brand-logo {
+		color: @blue;
+		font-size: 1.6rem;
+		letter-spacing: 10px;
+		padding-left: 20px;
+	}
+
+	.nav-about {
+		background: @light-pink;
+		.link-color( #f2ece6 );
+	}
+	.nav-location {
+		background: @mid-blue;
+		.link-color( @light-blue );
+	}
+	.nav-lineup {
+		background: @pink;
+		.link-color( @light-grey );
+	}
+	.nav-tickets {
+		background: @grey;
+		.link-color( @light-grey );
+	}
+	.nav-program {
+		background: @light-grey;
+		.link-color( @grey );
+	}
+	.nav-social {
+		background: @blue;
+		.link-color( @light-blue );
+		height: 56px;
+		padding-left: 25px;
+		padding-right: 25px;
+		a {
+			font-size: 20px;
+			display: inline-block;
+			padding-left: 5px;
+			padding-right: 5px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+		a:hover {
+			padding-top: 0px;
+		}
+		i {
+			height: 0px;
+			line-height: 0px;
+		}
+	}
+}

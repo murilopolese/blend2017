@@ -1,0 +1,69 @@
+// LINEUP
+.lineup {
+	h2 {
+		.link-color( @light-pink );
+		text-transform: uppercase;
+	}
+	.host {
+		img {
+			vertical-align: middle;
+		}
+		.breathe {
+			margin-right: 20px;
+		}
+	}
+	.item {
+		h4 {
+			text-transform: uppercase;
+			margin-bottom: 5px;
+		}
+		h5 {
+			margin-top: 5px;
+		}
+		img {
+			width: 100%;
+		}
+		.thumbnail {
+			display: inline-block;
+			position: relative;
+			.thumbnail-color {
+				position: absolute;
+				top: 0;
+				opacity: 0;
+				transition: opacity 0.2s ease-out;
+			}
+			&:hover {
+				.thumbnail-color {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+.modal-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: white;
+}
+.modal {
+	box-shadow: none;
+	background: @blue;
+	color: @white;
+	width: 800px;
+	max-width: 100%;
+	img {
+		display: block;
+	}
+	p {
+		.body-text2;
+	}
+	.image {
+		padding: 0;
+	}
+	.text {
+		padding: 35px 40px;
+	}
+}
