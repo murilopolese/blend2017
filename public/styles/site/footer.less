@@ -35,4 +35,18 @@
 		padding: 13px 50px;
 		letter-spacing: 0.1em;
 	}
+	::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		color: @beige;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: @beige;
+		opacity: 1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color: @beige;
+		opacity: 1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: @beige;
+	}
 }
