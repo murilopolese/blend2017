@@ -40,6 +40,7 @@ exports = module.exports = function (app) {
 	app.get('/program', routes.views.program);
 	app.get('/lineup', routes.views.lineup);
 	app.get('/tickets', routes.views.tickets);
+	app.post('/character', routes.views.character);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
