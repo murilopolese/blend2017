@@ -23,19 +23,19 @@
 		font-size: 14px;
 		color: @white;
 		background: @blue;
+		box-shadow: none;
 	}
 
 	.btn-outline {
 		display: inline-block;
-		border: solid 1px @blue;
+		position: relative;
+		border: solid 2px @blue;
 		text-align: left;
 		color: @blue;
 		padding: 0;
 		line-height: 20px;
-		width: 21px;
-		height: 21px;
-		font-size: 12px;
-		padding-left: 6px;
+		width: 20px;
+		height: 20px;
 		&.big {
 			line-height: 44px;
 			width: 40px;
@@ -43,10 +43,18 @@
 			font-size: 22px;
 			padding-left: 13px;
 		}
-		&.selected, &:hover {
+		&.selected {
 			color: @light-blue;
-			background: @blue
+			background: @blue;
 		}
+		&::after {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate( -50%, -50% );
+			content: '';
+		}
+
 	}
 
 	.form {
@@ -89,6 +97,7 @@
 	}
 
 	.props {
+		padding-top: 15px;
 		p {
 			font-family: 'Futuraround demi';
 			font-size: 14px;
@@ -97,8 +106,17 @@
 		p {
 			margin: 0;
 		}
-		.block-props {
+
+		// NUMBER BLOCKS
+		.one-block,
+		.two-block,
+		.three-block {
+			padding-left: 4.5px;
+			padding-top: 8px;
+			line-height: 0;
+			font-size: 12px;
 		}
+
 	}
 
 	.character-builder {
@@ -108,10 +126,155 @@
 		}
 		.wooden-character {
 			position: absolute;
+			text-align: center;
 			width: 100%;
-			bottom: 10%;
+			background: #ccc;
+			bottom: 5%;
 			left: 50%;
 			transform: translate( -50%, 0 );
+
+			.block {
+				margin: 0 auto;
+			}
+
+			// SQUARE BLOCKS
+			.square-color( @c ) {
+				background: @c;
+			}
+			.square-size( @size ) {
+				width: @size;
+				height: @size;
+			}
+			.square-block {
+				&.small-block { .square-size( 50px ) }
+				&.medium-block { .square-size( 100px ) }
+				&.big-block { .square-size( 150px ) }
+				&.blue-block { .square-color( @blue ) }
+				&.mid-blue-block { .square-color( @mid-blue ) }
+				&.light-blue-block { .square-color( @light-blue ) }
+				&.light-pink-block { .square-color( @light-pink ) }
+				&.pink-block { .square-color( @pink ) }
+				&.beige-block { .square-color( @beige ) }
+			}
+
+			// CIRCLE BLOCKS
+			.circle-color( @c ) {
+				.square-color( @c );
+			}
+			.circle-size( @size ) {
+				.square-size( @size );
+			}
+			.circle-block {
+				border-radius: 999px;
+				&.small-block { .circle-size( 50px ) }
+				&.medium-block { .circle-size( 100px ) }
+				&.big-block { .circle-size( 150px ) }
+				&.blue-block { .circle-color( @blue ) }
+				&.mid-blue-block { .circle-color( @mid-blue ) }
+				&.light-blue-block { .circle-color( @light-blue ) }
+				&.light-pink-block { .circle-color( @light-pink ) }
+				&.pink-block { .circle-color( @pink ) }
+				&.beige-block { .circle-color( @beige ) }
+			}
+
+			// RECTANGLE BLOCKS
+			.rectangle-color( @c ) {
+				.square-color( @c );
+			}
+			.rectangle-size( @size ) {
+				width: @size;
+				height: @size/3;
+			}
+			.rectangle-block {
+				&.small-block { .rectangle-size( 100px ) }
+				&.medium-block { .rectangle-size( 150px ) }
+				&.big-block { .rectangle-size( 200px ) }
+				&.blue-block { .rectangle-color( @blue ) }
+				&.mid-blue-block { .rectangle-color( @mid-blue ) }
+				&.light-blue-block { .rectangle-color( @light-blue ) }
+				&.light-pink-block { .rectangle-color( @light-pink ) }
+				&.pink-block { .rectangle-color( @pink ) }
+				&.beige-block { .rectangle-color( @beige ) }
+			}
+
+			// HEXAGON BLOCKS
+			.hexagon-color( @c ) {
+				background: @c;
+				&::before {
+					border-bottom-color: @c;
+				}
+				&::after {
+					border-top-color: @c;
+				}
+			}
+			.hexagon-size( @size ) {
+				width: @size;
+				height: @size * 0.55;
+				margin-top: @size/4;
+				margin-bottom: @size/4;
+				&::before {
+					top: -@size/4;
+					border-left: @size/2 solid transparent;
+					border-right: @size/2 solid transparent;
+					border-bottom: @size/4 solid;
+				}
+				&::after {
+					bottom: -@size/4;
+					border-left: @size/2 solid transparent;
+					border-right: @size/2 solid transparent;
+					border-top: @size/4 solid;
+				}
+			}
+			.hexagon-block {
+				position: relative;
+				&.small-block { .hexagon-size( 50px ) }
+				&.medium-block { .hexagon-size( 100px ) }
+				&.big-block { .hexagon-size( 150px ) }
+				&.blue-block { .hexagon-color( @blue ) }
+				&.mid-blue-block { .hexagon-color( @mid-blue ) }
+				&.light-blue-block { .hexagon-color( @light-blue ) }
+				&.light-pink-block { .hexagon-color( @light-pink ) }
+				&.pink-block { .hexagon-color( @pink ) }
+				&.beige-block { .hexagon-color( @beige ) }
+			}
+			.hexagon-block:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 0;
+				height: 0;
+			}
+			.hexagon-block:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 0;
+				height: 0;
+			}
+
+			// TRIANGULAR BLOCKS
+			.triangle-color( @c ) {
+				border-bottom-color: @c;
+			}
+			.triangle-size( @size ) {
+				border-left: @size/2 solid transparent;
+				border-right: @size/2 solid transparent;
+				border-bottom: @size solid;
+			}
+			.triangle-block {
+				width: 0;
+				height: 0;
+				&.small-block { .triangle-size( 50px ) }
+				&.medium-block { .triangle-size( 100px ) }
+				&.big-block { .triangle-size( 150px ) }
+				&.blue-block { .triangle-color( @blue ) }
+				&.mid-blue-block { .triangle-color( @mid-blue ) }
+				&.light-blue-block { .triangle-color( @light-blue ) }
+				&.light-pink-block { .triangle-color( @light-pink ) }
+				&.pink-block { .triangle-color( @pink ) }
+				&.beige-block { .triangle-color( @beige ) }
+			}
+
 		}
 	}
 }
