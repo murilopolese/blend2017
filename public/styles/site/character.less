@@ -36,6 +36,7 @@
 		line-height: 20px;
 		width: 20px;
 		height: 20px;
+		padding-left: 3px;
 		&.big {
 			line-height: 44px;
 			width: 40px;
@@ -54,7 +55,26 @@
 			transform: translate( -50%, -50% );
 			content: '';
 		}
-
+	}
+	.btn-outline[data-prop="blue"] {
+		background: @blue;
+		border-color: @blue;;
+	}
+	.btn-outline[data-prop="beige"] {
+		background: @beige;
+		border-color: @beige;;
+	}
+	.btn-outline[data-prop="weird-pink"] {
+		background: @weird-pink;
+		border-color: @weird-pink;;
+	}
+	.btn-outline[data-prop="light-pink"] {
+		background: @light-pink;
+		border-color: @light-pink;;
+	}
+	.btn-outline[data-prop="pink"] {
+		background: @pink;
+		border-color: @pink;;
 	}
 
 	.form {
@@ -106,15 +126,8 @@
 		p {
 			margin: 0;
 		}
-
-		// NUMBER BLOCKS
-		.one-block,
-		.two-block,
-		.three-block {
-			padding-left: 4.5px;
-			padding-top: 8px;
-			line-height: 0;
-			font-size: 12px;
+		.block-props {
+			display: none;
 		}
 
 	}
@@ -128,7 +141,6 @@
 			position: absolute;
 			text-align: center;
 			width: 100%;
-			background: #ccc;
 			bottom: 5%;
 			left: 50%;
 			transform: translate( -50%, 0 );
@@ -151,7 +163,7 @@
 				&.big-block { .square-size( 150px ) }
 				&.blue-block { .square-color( @blue ) }
 				&.mid-blue-block { .square-color( @mid-blue ) }
-				&.light-blue-block { .square-color( @light-blue ) }
+				&.weird-pink-block { .square-color( @weird-pink ) }
 				&.light-pink-block { .square-color( @light-pink ) }
 				&.pink-block { .square-color( @pink ) }
 				&.beige-block { .square-color( @beige ) }
@@ -164,14 +176,13 @@
 			.circle-size( @size ) {
 				.square-size( @size );
 			}
-			.circle-block {
+			.circl-block {
 				border-radius: 999px;
 				&.small-block { .circle-size( 50px ) }
 				&.medium-block { .circle-size( 100px ) }
 				&.big-block { .circle-size( 150px ) }
 				&.blue-block { .circle-color( @blue ) }
-				&.mid-blue-block { .circle-color( @mid-blue ) }
-				&.light-blue-block { .circle-color( @light-blue ) }
+				&.weird-pink-block { .circle-color( @weird-pink ) }
 				&.light-pink-block { .circle-color( @light-pink ) }
 				&.pink-block { .circle-color( @pink ) }
 				&.beige-block { .circle-color( @beige ) }
@@ -186,12 +197,11 @@
 				height: @size/3;
 			}
 			.rectangle-block {
-				&.small-block { .rectangle-size( 100px ) }
-				&.medium-block { .rectangle-size( 150px ) }
-				&.big-block { .rectangle-size( 200px ) }
+				&.small-block { .rectangle-size( 50px ) }
+				&.medium-block { .rectangle-size( 100px ) }
+				&.big-block { .rectangle-size( 150px ) }
 				&.blue-block { .rectangle-color( @blue ) }
-				&.mid-blue-block { .rectangle-color( @mid-blue ) }
-				&.light-blue-block { .rectangle-color( @light-blue ) }
+				&.weird-pink-block { .rectangle-color( @weird-pink ) }
 				&.light-pink-block { .rectangle-color( @light-pink ) }
 				&.pink-block { .rectangle-color( @pink ) }
 				&.beige-block { .rectangle-color( @beige ) }
@@ -201,28 +211,31 @@
 			.hexagon-color( @c ) {
 				background: @c;
 				&::before {
-					border-bottom-color: @c;
+					border-right-color: @c;
 				}
 				&::after {
-					border-top-color: @c;
+					border-left-color: @c;
 				}
 			}
 			.hexagon-size( @size ) {
-				width: @size;
-				height: @size * 0.55;
-				margin-top: @size/4;
-				margin-bottom: @size/4;
+				position: relative;
+				width: @size * 0.75;
+				height: @size;
 				&::before {
-					top: -@size/4;
-					border-left: @size/2 solid transparent;
-					border-right: @size/2 solid transparent;
-					border-bottom: @size/4 solid;
+					left: -(@size/4)+1;
+					width: 0;
+					height: 0;
+					border-top: @size/2 solid transparent;
+					border-right: @size/4 solid;
+					border-bottom: @size/2 solid transparent;
 				}
 				&::after {
-					bottom: -@size/4;
-					border-left: @size/2 solid transparent;
-					border-right: @size/2 solid transparent;
-					border-top: @size/4 solid;
+					right: -(@size/4)+1;
+					width: 0;
+					height: 0;
+					border-top: @size/2 solid transparent;
+					border-left: @size/4 solid;
+					border-bottom: @size/2 solid transparent;
 				}
 			}
 			.hexagon-block {
@@ -231,8 +244,7 @@
 				&.medium-block { .hexagon-size( 100px ) }
 				&.big-block { .hexagon-size( 150px ) }
 				&.blue-block { .hexagon-color( @blue ) }
-				&.mid-blue-block { .hexagon-color( @mid-blue ) }
-				&.light-blue-block { .hexagon-color( @light-blue ) }
+				&.weird-pink-block { .hexagon-color( @weird-pink ) }
 				&.light-pink-block { .hexagon-color( @light-pink ) }
 				&.pink-block { .hexagon-color( @pink ) }
 				&.beige-block { .hexagon-color( @beige ) }
@@ -240,14 +252,14 @@
 			.hexagon-block:before {
 				content: "";
 				position: absolute;
-				left: 0;
+				top: 0;
 				width: 0;
 				height: 0;
 			}
 			.hexagon-block:after {
 				content: "";
 				position: absolute;
-				left: 0;
+				top: 0;
 				width: 0;
 				height: 0;
 			}
@@ -268,8 +280,7 @@
 				&.medium-block { .triangle-size( 100px ) }
 				&.big-block { .triangle-size( 150px ) }
 				&.blue-block { .triangle-color( @blue ) }
-				&.mid-blue-block { .triangle-color( @mid-blue ) }
-				&.light-blue-block { .triangle-color( @light-blue ) }
+				&.weird-pink-block { .triangle-color( @weird-pink ) }
 				&.light-pink-block { .triangle-color( @light-pink ) }
 				&.pink-block { .triangle-color( @pink ) }
 				&.beige-block { .triangle-color( @beige ) }
