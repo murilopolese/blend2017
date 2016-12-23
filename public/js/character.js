@@ -10,25 +10,28 @@ $( document ).ready( function() {
 
 	// Wooden character model
 	Character = {
-		test: 'true',
+		amount: 3,
 		blocks: [
 			{
 				shape: 'circl',
 				size: 'medium',
 				color: 'blue',
-				texture: 'flat'
+				texture: 'flat',
+				hidden: false
 			},
 			{
 				shape: 'square',
 				size: 'medium',
 				color: 'light-pink',
-				texture: 'flat'
+				texture: 'flat',
+				hidden: false
 			},
 			{
 				shape: 'rectangle',
 				size: 'big',
 				color: 'pink',
-				texture: 'flat'
+				texture: 'flat',
+				hidden: false
 			}
 		]
 	};
@@ -54,17 +57,20 @@ $( document ).ready( function() {
 
 	function renderProps( model ) {
 		// Select the correct number of blocks
-		var amount = model.blocks.length;
+		var amount = model.amount;
 		$( '.amount-prop .selected' ).toggleClass( 'selected' );
-		$( '.amount-prop .btn-outline[data-prop="' + amount + '"]' ).toggleClass( 'selected' )
+		$( '.amount-prop .btn-outline[data-prop="' + amount + '"]' ).toggleClass( 'selected' );
+
 
 		model.blocks.forEach( function( b, i ) {
 			var parent = $( '.block-props[data-prop="block'+i+'"]' );
 			// Hide/Show block properties
 			if( b.hidden ) {
 				parent.hide();
+				$( '#block' + i ).hide();
 			} else {
 				parent.show();
+				$( '#block' + i ).show();
 			}
 
 			// Select shape
@@ -95,6 +101,52 @@ $( document ).ready( function() {
 	render( Character );
 
 	// BIND EVENTS
+	$( '.amount-prop .btn-outline' ).click( function()  {
+		var i = $( this ).data( 'prop' );
+		Character.amount = i;
+		if( i == 1 ) {
+			Character.blocks[ 0 ].hidden = false;
+			Character.blocks[ 1 ].hidden = true;
+			Character.blocks[ 2 ].hidden = true;
+		}
+		if( i == 2 ) {
+			Character.blocks[ 0 ].hidden = false;
+			Character.blocks[ 1 ].hidden = false;
+			Character.blocks[ 2 ].hidden = true;
+		}
+		if( i == 3 ) {
+			Character.blocks[ 0 ].hidden = false;
+			Character.blocks[ 1 ].hidden = false;
+			Character.blocks[ 2 ].hidden = false;
+		}
+
+		render( Character );
+	})
+
+	function rand( n ) {
+		n = n || 1;
+		return Math.floor( Math.random() * n );
+	}
+
+	$( '.shuffle' ).click( function() {
+		var amount = rand( 3 ) + 1;
+		Character.amount = amount;
+
+		Character.blocks.forEach( function( b, i ) {
+			b.shape = shapeOptions[ rand( shapeOptions.length ) ];
+			b.size = sizeOptions[ rand( sizeOptions.length ) ];
+			b.color = colorOptions[ rand( colorOptions.length ) ];
+			b.texture = textureOptions[ rand( textureOptions.length ) ];
+			console.log( i, amount );
+			if( i < amount ) {
+				b.hidden = false;
+			} else {
+				b.hidden = true;
+			}
+		});
+
+		render( Character );
+	})
 	$( '.shape-prop .btn-outline' ).click( function() {
 		var i = $( this ).data( 'block' );
 		var shape = $( this ).data( 'prop' );
