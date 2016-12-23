@@ -98,6 +98,7 @@ $( document ).ready( function() {
 	}
 
 	// Initial render
+	shuffle();
 	render( Character );
 
 	// BIND EVENTS
@@ -127,8 +128,7 @@ $( document ).ready( function() {
 		n = n || 1;
 		return Math.floor( Math.random() * n );
 	}
-
-	$( '.shuffle' ).click( function() {
+	function shuffle() {
 		var amount = rand( 3 ) + 1;
 		Character.amount = amount;
 
@@ -144,7 +144,10 @@ $( document ).ready( function() {
 				b.hidden = true;
 			}
 		});
+	}
 
+	$( '.shuffle' ).click( function() {
+		shuffle();
 		render( Character );
 	})
 	$( '.shape-prop .btn-outline' ).click( function() {
