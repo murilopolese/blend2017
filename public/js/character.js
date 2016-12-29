@@ -1,15 +1,12 @@
-var app = app || {};
-
 $( document ).ready( function() {
 	console.log( 'character builder' );
 
-	var shapeOptions = [ 'square', 'circl', 'hexagon', 'triangle', 'rectangle' ];
-	var colorOptions = [ 'blue', 'beige', 'weird-pink', 'light-pink', 'pink' ];
-	var textureOptions = [ 'flat', 'wood' ];
-	var sizeOptions = [ 'small', 'medium', 'big' ];
-
 	// Wooden character model
 	Character = {
+		shapeOptions: [ 'square', 'circl', 'hexagon', 'triangle', 'rectangle' ],
+		colorOptions: [ 'blue', 'beige', 'weird-pink', 'light-pink', 'pink' ],
+		textureOptions: [ 'flat', 'wood' ],
+		sizeOptions: [ 'small', 'medium', 'big' ],
 		amount: 3,
 		blocks: [
 			{
@@ -33,9 +30,30 @@ $( document ).ready( function() {
 				texture: 'flat',
 				hidden: false
 			}
-		]
+		],
+		shuffle: function() {
+			var amount = Character.rand( 3 ) + 1;
+			Character.amount = amount;
+
+			Character.blocks.forEach( function( b, i ) {
+				b.shape = Character.shapeOptions[ Character.rand( Character.shapeOptions.length ) ];
+				b.size = Character.sizeOptions[ Character.rand( Character.sizeOptions.length ) ];
+				b.color = Character.colorOptions[ Character.rand( Character.colorOptions.length ) ];
+				b.texture = Character.textureOptions[ Character.rand( Character.textureOptions.length ) ];
+				if( i < amount ) {
+					b.hidden = false;
+				} else {
+					b.hidden = true;
+				}
+			});
+		},
+		rand: function( n ) {
+			n = n || 1;
+			return Math.floor( Math.random() * n );
+		}
 	};
 
+	// RENDER VIEWS
 	// Render wooden character from model
 	function renderCharacter( model ) {
 		if( !model || !model.blocks || !model.blocks.length ) {
@@ -55,6 +73,7 @@ $( document ).ready( function() {
 		})
 	}
 
+	// Render wooden character properties panel from model
 	function renderProps( model ) {
 		// Select the correct number of blocks
 		var amount = model.amount;
@@ -92,16 +111,15 @@ $( document ).ready( function() {
 
 	}
 
+	// Render properties panel and wooden character
 	function render( model ) {
 		renderProps( model );
 		renderCharacter( model );
 	}
 
-	// Initial render
-	shuffle();
-	render( Character );
 
 	// BIND EVENTS
+	// Hide unused panels based on character amount of blocks
 	$( '.amount-prop .btn-outline' ).click( function()  {
 		var i = $( this ).data( 'prop' );
 		Character.amount = i;
@@ -123,56 +141,42 @@ $( document ).ready( function() {
 
 		render( Character );
 	})
-
-	function rand( n ) {
-		n = n || 1;
-		return Math.floor( Math.random() * n );
-	}
-	function shuffle() {
-		var amount = rand( 3 ) + 1;
-		Character.amount = amount;
-
-		Character.blocks.forEach( function( b, i ) {
-			b.shape = shapeOptions[ rand( shapeOptions.length ) ];
-			b.size = sizeOptions[ rand( sizeOptions.length ) ];
-			b.color = colorOptions[ rand( colorOptions.length ) ];
-			b.texture = textureOptions[ rand( textureOptions.length ) ];
-			console.log( i, amount );
-			if( i < amount ) {
-				b.hidden = false;
-			} else {
-				b.hidden = true;
-			}
-		});
-	}
-
+	// Shuffle character
 	$( '.shuffle' ).click( function() {
-		shuffle();
+		Character.shuffle();
 		render( Character );
 	})
+	// Switch blocks shapes
 	$( '.shape-prop .btn-outline' ).click( function() {
 		var i = $( this ).data( 'block' );
 		var shape = $( this ).data( 'prop' );
 		Character.blocks[ i ].shape = shape;
 		render( Character );
 	})
+	// Switch blocks sizes
 	$( '.size-prop .btn-outline' ).click( function() {
 		var i = $( this ).data( 'block' );
 		var size = $( this ).data( 'prop' );
 		Character.blocks[ i ].size = size;
 		render( Character );
 	})
+	// Switch blocks color
 	$( '.color-prop .btn-outline' ).click( function() {
 		var i = $( this ).data( 'block' );
 		var color = $( this ).data( 'prop' );
 		Character.blocks[ i ].color = color;
 		render( Character );
 	})
+	// Switch blocks texture
 	$( '.texture-prop .btn-outline' ).click( function() {
 		var i = $( this ).data( 'block' );
 		var texture = $( this ).data( 'prop' );
 		Character.blocks[ i ].texture = texture;
 		render( Character );
 	})
+
+	// INITIAL RENDER
+	Character.shuffle();
+	render( Character );
 
 })
