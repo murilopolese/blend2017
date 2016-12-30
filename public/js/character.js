@@ -32,7 +32,7 @@ $( document ).ready( function() {
 			}
 		],
 		shuffle: function() {
-			var amount = Character.rand( 3 ) + 1;
+			var amount = Character.rand( 2 ) + 2;
 			Character.amount = amount;
 
 			Character.blocks.forEach( function( b, i ) {
@@ -116,7 +116,6 @@ $( document ).ready( function() {
 		renderProps( model );
 		renderCharacter( model );
 	}
-
 
 	// BIND EVENTS
 	// Hide unused panels based on character amount of blocks
