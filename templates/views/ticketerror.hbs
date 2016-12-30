@@ -1,0 +1,32 @@
+{{!< error}}
+
+<div class="valign-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col s6 offset-s3 center-align">
+				<div class="section">
+					<h1>Oh no!!!</h1>
+					<p>
+						{{message}}
+					</p>
+					<p>
+						You can also try again or continue <a href="/">browsing the website</a>.
+					</p>
+					<p>
+						If you think this shouldn't be happening, please get in touch with us
+						at <a href="mailto:info@blend.ca" target="_blank">info@blend.ca</a>
+						and we will assist you.
+					</p>
+				</div>
+				<form action="/character" method="POST">
+					<div class="section">
+						<input type="text" name="ticketId" value="" placeholder="ticket code">
+					</div>
+					<div class="section">
+						<input type="submit" value="SUBMIT" >
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+.error-template {
+	color: @blue;
+	.link-color( @blue );
+	a:link, a:hover, a:active, a:active {
+		font-weight: bold;
+	}
+	.valign-wrapper {
+		height: 100vh;
+		width: 100vw;
+		background: @light-blue;
+	}
+	input[type="text"] {
+		.input-text;
+	}
+	input[type="text"]:focus {
+		.input-text-focus;
+	}
+	input[type="submit"] {
+		.input-submit;
+	}
+	::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+		color: @blue;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: @blue;
+		opacity: 1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color: @blue;
+		opacity: 1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: @blue;
+	}
+}
