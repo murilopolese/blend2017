@@ -41,6 +41,7 @@ exports = module.exports = function (app) {
 	app.get('/lineup', routes.views.lineup);
 	app.get('/tickets', routes.views.tickets);
 	app.post('/character', routes.views.character);
+	app.post('/saveCharacter', routes.views.characterSave);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);

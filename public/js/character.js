@@ -173,6 +173,35 @@ $( document ).ready( function() {
 		Character.blocks[ i ].texture = texture;
 		render( Character );
 	})
+	// Save character
+	$( '.imdone' ).click( function() {
+
+		Character.ticketId = $( 'input[name="ticketId"]' ).val();
+		Character.name = $( 'input[name="name"]' ).val();
+		Character.surname = $( 'input[name="surname"]' ).val();
+		Character.email = $( 'input[name="email"]' ).val();
+		Character.message = $( 'input[name="message"]' ).val();
+		Character.website = $( 'input[name="website"]' ).val();
+
+		$.post( '/saveCharacter', {
+			ticketId: Character.ticketId,
+			name: Character.name,
+			surname: Character.surname,
+			email: Character.email,
+			message: Character.message,
+			website: Character.website,
+
+			blockAmount: Character.amount,
+			blocks: Character.blocks
+		})
+		.done( function( res ) {
+			console.log( 'done', res );
+			$( '.imdone' ).remove();
+		})
+		.fail( function( err ) {
+			console.log( 'fail', err.responseJSON );
+		})
+	})
 
 	// INITIAL RENDER
 	Character.shuffle();
