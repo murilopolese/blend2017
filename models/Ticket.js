@@ -12,9 +12,7 @@ Ticket.add({
 	name: { type: Types.Text, initial: true, required: true },
 	surname: { type: Types.Text, initial: true, required: true },
 	email: { type: Types.Email, initial: true, required: true },
-	company: { type: Types.Text, initial: true, required: true },
-	ticketType: { type: Types.Text, initial: true, required: true },
-	badgeName: { type: Types.Text, initial: true, required: true }
+	ticketType: { type: Types.Text, initial: true, required: true }
 });
 
 /**
