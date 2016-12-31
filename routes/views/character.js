@@ -6,6 +6,14 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
+	var secret = process.env.SECRET_TICKET_ID || 'ABC123';
+	if( req.body.ticketId == secret ) {
+		locals.section = 'character';
+		locals.ticketId = secret;
+		// Render the view
+		return view.render( 'character', { layout: 'character' } );
+	}
+
 	Ticket.model.findOne()
 		.where( 'ticketId', req.body.ticketId )
 		.exec( function( err, ticket ) {

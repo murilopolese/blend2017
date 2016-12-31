@@ -4,6 +4,13 @@ var Character = keystone.list( 'Character' );
 exports = module.exports = function( req, res ) {
 	var locals = res.locals;
 
+	var secret = process.env.SECRET_TICKET_ID || 'ABC123';
+	if( req.body.ticketId == secret ) {
+		return res.status( 400 ).send({
+			success: false, message: 'Not a valid request', data: req.body
+		});
+	}
+
 	// Basic request validation
 	if(
 		!req.body || !req.body.blocks || !req.body.blocks.length
