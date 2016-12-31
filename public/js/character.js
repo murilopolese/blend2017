@@ -199,6 +199,13 @@ $( document ).ready( function() {
 			$( '.imdone' ).remove();
 		})
 		.fail( function( err ) {
+			$( '.error' ).removeClass( 'error' );
+			if( err.responseJSON.message == 'Validation failed' ) {
+				err.responseJSON.data.forEach( function( field ) {
+					$( '.' + field + '-label' ).addClass( 'error' );
+					$( 'input[name="' + field + '"]' ).addClass( 'error' );
+				})
+			}
 			console.log( 'fail', err.responseJSON );
 		})
 	})

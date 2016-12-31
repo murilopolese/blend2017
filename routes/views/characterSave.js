@@ -51,6 +51,9 @@ exports = module.exports = function( req, res ) {
 
 	character.save( function( err ) {
 		if( err ) {
+			if( err.name == 'ValidationError') {
+				return res.status( 400 ).send( { success: false, message: err.message, data: Object.keys( err.errors ) } );
+			}
 			return res.status( 500 ).send( { success: false, message: err.message, data: err } );
 		}
 

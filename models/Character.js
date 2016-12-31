@@ -13,7 +13,6 @@ Character.add({
 
 	name: { type: Types.Text, required: true, initial: true },
 	surname: { type: Types.Text, required: true, initial: true },
-	email: { type: Types.Text, required: true, initial: true },
 	message: { type: Types.Text, required: false, initial: true },
 	website: { type: Types.Text, required: false, initial: true },
 
