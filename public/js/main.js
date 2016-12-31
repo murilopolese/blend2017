@@ -48,13 +48,17 @@ $(document).ready(function() {
 
 			for( var j = index; j < index + n; j++ ) {
 				if( selectedChars[ j ].blocks ) {
+					var websiteLink = '';
+					if( selectedChars[ j ].website ) {
+						websiteLink ='<a class="website-link" target="_blank" href="' + selectedChars[ j ].website + '"></a>';
+					}
 					$(this).append(
 						'<div class="mini-character">' +
 						'<div class="mini-character-container">' +
 						'<div class="block ' + selectedChars[ j ].blocks[ 0 ].shape + '-block ' + selectedChars[ j ].blocks[ 0 ].size + '-block ' + selectedChars[ j ].blocks[ 0 ].color + '-block ' + selectedChars[ j ].blocks[ 0 ].texture + '-block"></div>' +
 						'<div class="block ' + selectedChars[ j ].blocks[ 1 ].shape + '-block ' + selectedChars[ j ].blocks[ 1 ].size + '-block ' + selectedChars[ j ].blocks[ 1 ].color + '-block ' + selectedChars[ j ].blocks[ 1 ].texture + '-block"></div>' +
 						'<div class="block ' + selectedChars[ j ].blocks[ 2 ].shape + '-block ' + selectedChars[ j ].blocks[ 2 ].size + '-block ' + selectedChars[ j ].blocks[ 2 ].color + '-block ' + selectedChars[ j ].blocks[ 2 ].texture + '-block"></div>' +
-						'<a class="website-link" target="_blank" href="' + selectedChars[ j ].website + '"></a>' +
+						websiteLink + 
 						'</div>' +
 						'</div>')
 				} else {
