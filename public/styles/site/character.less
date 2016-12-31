@@ -17,15 +17,7 @@
 		}
 	}
 
-	.btn {
-		height: 40px;
-		line-height: 42px;
-		padding: 0 20px;
-		font-size: 14px;
-		color: @white;
-		background: @blue;
-		box-shadow: none;
-	}
+
 
 	.btn-outline {
 		display: inline-block;
@@ -242,8 +234,11 @@
 
 	.character-builder {
 		position: relative;
-		.imdone {
+		.imdone, .backtohome {
 			margin-top: 56px;
+		}
+		.backtohome {
+			display: none;
 		}
 		.wooden-character {
 			position: absolute;
@@ -383,5 +378,30 @@
 				}
 			}
 		}
+	}
+
+}
+.character-page {
+	.btn {
+		height: 40px;
+		line-height: 42px;
+		padding: 0 20px;
+		font-size: 14px;
+		color: @white;
+		background: @blue;
+		box-shadow: none;
+	}
+	.valign-wrapper {
+		height: 100%;
+	}
+	.modal {
+		background: @light-blue;
+		color: @blue;
+		top: 0 !important;
+		bottom: 0;
+		height: 100%;
+		max-height: 100%;
+		width: 100%;
+		box-shadow: none;
 	}
 }

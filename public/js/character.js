@@ -1,5 +1,8 @@
 $( document ).ready( function() {
 	console.log( 'character builder' );
+	$('.modal').modal({
+		dismissable: false
+	});
 
 	// Wooden character model
 	Character = {
@@ -197,6 +200,8 @@ $( document ).ready( function() {
 		.done( function( res ) {
 			console.log( 'done', res );
 			$( '.imdone' ).remove();
+			$( '.backtohome' ).css( 'display', 'inline-block' );
+			$('#modalsuccess').modal('open');
 		})
 		.fail( function( err ) {
 			$( '.error' ).removeClass( 'error' );
