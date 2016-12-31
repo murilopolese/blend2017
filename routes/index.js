@@ -40,6 +40,7 @@ exports = module.exports = function (app) {
 	app.get('/program', routes.views.program);
 	app.get('/lineup', routes.views.lineup);
 	app.get('/tickets', routes.views.tickets);
+	app.get('/character', routes.views.index);
 	app.post('/character', routes.views.character);
 	app.post('/saveCharacter', routes.views.characterSave);
 
