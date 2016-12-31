@@ -23,6 +23,12 @@ $(document).ready(function() {
 
 	function refresh() {
 		shuffle( characters );
+
+		if( characters.length < 50 ) {
+			for( var i = 0; i < 50 - characters.length; i++ ) {
+				characters.push( {} );
+			}
+		}
 		var selectedChars = characters.slice( 0, 50 );
 		for( var i = 0; i < 28; i++ ) {
 			selectedChars.push( {} );
