@@ -4,13 +4,6 @@ var Character = keystone.list( 'Character' );
 exports = module.exports = function( req, res ) {
 	var locals = res.locals;
 
-	var secret = process.env.SECRET_TICKET_ID || 'ABC123';
-	if( req.body.ticketId == secret ) {
-		return res.status( 400 ).send({
-			success: false, message: 'Not a valid request', data: req.body
-		});
-	}
-
 	// Basic request validation
 	if(
 		!req.body || !req.body.blocks || !req.body.blocks.length
@@ -49,16 +42,25 @@ exports = module.exports = function( req, res ) {
 		block3Hidden: req.body.blocks[2].hidden
 	});
 
-	character.save( function( err ) {
-		if( err ) {
-			if( err.name == 'ValidationError') {
-				return res.status( 400 ).send( { success: false, message: err.message, data: Object.keys( err.errors ) } );
-			}
-			return res.status( 500 ).send( { success: false, message: err.message, data: err } );
+	character.validate( function( err ) {
+		if( err && err.name == 'ValidationError') {
+			return res.status( 400 ).send( { success: false, message: err.message, data: Object.keys( err.errors ) } );
 		}
 
-		console.log( 'character created', character.ticketId );
-		return res.status( 200 ).json( { success: true, message: 'Character saved', data: character } );
+		var secret = process.env.SECRET_TICKET_ID || 'ABC123';
+		if( req.body.ticketId == secret ) {
+			return res.status( 200 ).json( { success: true, message: 'Character saved', data: {} } );
+		}
+
+		character.save( function( err ) {
+			if( err ) {
+				return res.status( 500 ).send( { success: false, message: err.message, data: err } );
+			}
+
+			console.log( 'character created', character.ticketId );
+			return res.status( 200 ).json( { success: true, message: 'Character saved', data: character } );
+		})
 	})
+
 
 };
