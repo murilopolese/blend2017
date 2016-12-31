@@ -5,7 +5,7 @@ $( document ).ready( function() {
 	});
 
 	// Wooden character model
-	Character = {
+	var Character = {
 		shapeOptions: [ 'square', 'circl', 'hexagon', 'triangle', 'rectangle' ],
 		colorOptions: [ 'blue', 'beige', 'weird-pink', 'light-pink', 'pink' ],
 		textureOptions: [ 'flat', 'texture' ],

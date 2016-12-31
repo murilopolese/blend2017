@@ -17,8 +17,6 @@
 		}
 	}
 
-
-
 	.btn-outline {
 		display: inline-block;
 		position: relative;
@@ -279,14 +277,14 @@
 			}
 
 			// SQUARE BLOCKS
-			.square-size( @size ) {
-				width: @size;
-				height: @size;
+			.square-size( @sizew, @sizeh ) {
+				width: @sizew;
+				height: @sizeh;
 			}
 			.square-block {
-				&.small-block { .square-size( 50px ) }
-				&.medium-block { .square-size( 100px ) }
-				&.big-block { .square-size( 160px ) }
+				&.small-block { .square-size( 50px, 50px ) }
+				&.medium-block { .square-size( 100px, 100px ) }
+				&.big-block { .square-size( 160px, 160px ) }
 				&.blue-block { background-color: @blue; }
 				&.weird-pink-block { background-color: @weird-pink; }
 				&.light-pink-block { background-color: @light-pink; }
@@ -299,14 +297,14 @@
 			}
 
 			// CIRCLE BLOCKS
-			.circle-size( @size ) {
-				width: @size;
-				height: @size;
+			.circle-size( @sizew, @sizeh ) {
+				width: @sizew;
+				height: @sizeh;
 			}
 			.circl-block {
-				&.small-block { .circle-size( 50px ) }
-				&.medium-block { .circle-size( 100px ) }
-				&.big-block { .circle-size( 160px ) }
+				&.small-block { .circle-size( 50px, 50px ) }
+				&.medium-block { .circle-size( 100px, 100px ) }
+				&.big-block { .circle-size( 160px, 160px ) }
 				&.blue-block { background-color: @blue; }
 				&.weird-pink-block { background-color: @weird-pink; }
 				&.light-pink-block { background-color: @light-pink; }
@@ -319,14 +317,14 @@
 			}
 
 			// RECTANGLE BLOCKS
-			.rectangle-size( @size ) {
-				width: @size;
-				height: @size / 3;
+			.rectangle-size( @sizew, @sizeh ) {
+				width: @sizew;
+				height: @sizeh;
 			}
 			.rectangle-block {
-				&.small-block { .rectangle-size( 50px ) }
-				&.medium-block { .rectangle-size( 100px ) }
-				&.big-block { .rectangle-size( 160px ) }
+				&.small-block { .rectangle-size( 50px, 20px ) }
+				&.medium-block { .rectangle-size( 100px, 40px ) }
+				&.big-block { .rectangle-size( 160px, 64px ) }
 				&.blue-block { background-color: @blue; }
 				&.weird-pink-block { background-color: @weird-pink; }
 				&.light-pink-block { background-color: @light-pink; }
@@ -339,14 +337,14 @@
 			}
 
 			// HEXAGON BLOCKS
-			.hexagon-size( @size ) {
-				width: @size;
-				height: @size * 0.85;
+			.hexagon-size( @sizew, @sizeh ) {
+				width: @sizew;
+				height: @sizeh;
 			}
 			.hexagon-block {
-				&.small-block { .hexagon-size( 60px ) }
-				&.medium-block { .hexagon-size( 100px ) }
-				&.big-block { .hexagon-size( 160px ) }
+				&.small-block { .hexagon-size( 60px, 48px ) }
+				&.medium-block { .hexagon-size( 100px, 80px ) }
+				&.big-block { .hexagon-size( 160px, 128px ) }
 				&.blue-block { background-color: @blue; }
 				&.weird-pink-block { background-color: @weird-pink; }
 				&.light-pink-block { background-color: @light-pink; }
@@ -359,14 +357,14 @@
 			}
 
 			// TRIANGULAR BLOCKS
-			.triangle-size( @size ) {
-				width: @size;
-				height: @size * 0.85;
+			.triangle-size( @sizew, @sizeh ) {
+				width: @sizew;
+				height: @sizeh;
 			}
 			.triangle-block {
-				&.small-block { .triangle-size( 60px ) }
-				&.medium-block { .triangle-size( 100px ) }
-				&.big-block { .triangle-size( 160px ) }
+				&.small-block { .triangle-size( 60px, 48px ) }
+				&.medium-block { .triangle-size( 100px, 80px ) }
+				&.big-block { .triangle-size( 160px, 128px ) }
 				&.blue-block { background-color: @blue; }
 				&.weird-pink-block { background-color: @weird-pink; }
 				&.light-pink-block { background-color: @light-pink; }
@@ -377,6 +375,7 @@
 					background-image: url('/images/blocks/triangle_corners.svg');
 				}
 			}
+
 		}
 	}
 

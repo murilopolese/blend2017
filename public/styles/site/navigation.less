@@ -20,6 +20,7 @@ nav {
 			display: block;
 		}
 		ul.nav {
+			position: relative;
 			display: none;
 			width: 100%;
 			text-align: center;
@@ -35,12 +36,16 @@ nav {
 			}
 		}
 	}
+
 	background-color: @light-blue;
 	height: 56px;
-	margin-bottom: 56px;
 	box-shadow: none;
 	position: relative;
 	z-index: 10;
+	ul {
+		position: absolute;
+		right: 0;
+	}
 	li {
 		text-transform: uppercase;
 		a {

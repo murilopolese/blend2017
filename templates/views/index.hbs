@@ -1,23 +1,84 @@
 {{!< default}}
-<div class="valign-wrapper">
-	<div class="container valign-center">
-		<div class="row">
-			<div class="col s12 l10 offset-l1 center-align">
+<div class="home-container">
+
+	<div class="col col-left">
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+	</div>
+
+	<div class="col col-middle center-align">
+		<div class="valign-wrapper">
+			<div class="valign-center">
 				<h1>VANCOUVER</h1>
 				<h2>MAY 26 & 27 2017</h2>
-				<p><img src="/images/blend-b.jpg" alt="" /></p>
-				<p>
+				<p><img src="/images/blend-b.jpg" width="104" alt="Blend" /></p>
+				<p class="description">
 					Blend is a conference-style party in Vancouver for our motion, design
 					& animation family. Because when we can get together,
-					<a class="bold" href="https://vimeo.com/176173878">amazing things happen</a>.
+					<a class="bold" target="_blank" href="https://vimeo.com/176173878">amazing things happen</a>.
 				</p>
 				<p class="hide-on-med-and-down">
 					<button class="btn" data-target="modalticketnumber">Join the party!</button>
 				</p>
+				<p class="hide-on-med-and-down">
+					<a href="#" class="refresh"><i class="material-icons">replay</i></a>
+				</p>
 			</div>
 		</div>
 	</div>
+
+	<div class="col col-right">
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+	</div>
+
 </div>
+
+<script>
+	var characters = [
+		{{#each characters}}
+		{
+			"name" : "{{name}}",
+			"surname" : "{{surname}}",
+			"website" : "{{website}}",
+			"message" : "{{message}}",
+			"blockAmount" : "{{blockAmount}}",
+			"blocks" : [
+				{
+					"shape": "{{block1Shape}}",
+					"color": "{{block1Color}}",
+					"size": "{{block1Size}}",
+					"texture": "{{block1Texture}}",
+					"hidden": "{{block1Hidden}}"
+				},
+				{
+					"shape": "{{block2Shape}}",
+					"color": "{{block2Color}}",
+					"size": "{{block2Size}}",
+					"texture": "{{block2Texture}}",
+					"hidden": "{{block2Hidden}}"
+				},
+				{
+					"shape": "{{block3Shape}}",
+					"color": "{{block3Color}}",
+					"size": "{{block3Size}}",
+					"texture": "{{block3Texture}}",
+					"hidden": "{{block3Hidden}}"
+				}
+			]
+		},
+		{{/each}}
+	]
+</script>
+
 <div id="modalticketnumber" class="modal">
 	<div class="valign-wrapper">
 		<div class="container">
