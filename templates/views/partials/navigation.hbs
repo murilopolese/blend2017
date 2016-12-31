@@ -3,8 +3,10 @@
     <a href="/" class="brand-logo">
 			<img src="/images/blend-logo.jpg" alt="BLEND logo" />
 		</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-
+		<a href="#" class="button-collapse">
+			<i class="material-icons">menu</i>
+		</a>
+    <ul class="right nav">
 			{{#each navLinks}}
 				{{#ifeq ../section class}}
 					<li class="nav nav-{{class}} nav-current">
@@ -17,7 +19,7 @@
 				{{/ifeq}}
 			{{/each}}
 
-			<li class="nav-social">
+			<li class="nav-social hide-on-med-and-down">
 				{{#each navSocial}}
 					<a href="{{link}}" target="_blank"><i class="fa fa-{{site}}"></i></a>
 				{{/each}}

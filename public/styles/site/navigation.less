@@ -1,5 +1,40 @@
 // NAVIGATION
+@media only screen and (max-width: 767px) {
+}
 nav {
+	@media only screen and (max-width: 992px) {
+		a.button-collapse:link,
+		a.button-collapse:hover,
+		a.button-collapse:active,
+		a.button-collapse:visited {
+			color: @blue;
+			height: 56px;
+			i {
+				height: 56px;
+				line-height: 32px;
+				font-size: 32px;
+				padding: 10px
+			}
+		}
+		ul.nav.visible-mobile {
+			display: block;
+		}
+		ul.nav {
+			display: none;
+			width: 100%;
+			text-align: center;
+			li {
+				display: block;
+				float: none;
+				a:hover {
+					padding-top: 24px;
+				}
+			}
+			.nav-current a {
+				padding-top: 24px;
+			}
+		}
+	}
 	background-color: @light-blue;
 	height: 56px;
 	margin-bottom: 56px;
