@@ -5,7 +5,7 @@ $( document ).ready( function() {
 	Character = {
 		shapeOptions: [ 'square', 'circl', 'hexagon', 'triangle', 'rectangle' ],
 		colorOptions: [ 'blue', 'beige', 'weird-pink', 'light-pink', 'pink' ],
-		textureOptions: [ 'flat', 'wood' ],
+		textureOptions: [ 'flat', 'texture' ],
 		sizeOptions: [ 'small', 'medium', 'big' ],
 		amount: 3,
 		blocks: [
