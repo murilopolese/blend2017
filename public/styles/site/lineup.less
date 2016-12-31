@@ -49,7 +49,11 @@
 		background: @blue;
 		color: @white;
 		width: 800px;
-		max-width: 100%;
+		max-width: 80%;
+		@media only screen and (max-width: 767px) {
+			max-width: 100%;
+			max-height: 80%;
+		}
 		img {
 			display: block;
 		}
@@ -60,7 +64,13 @@
 			padding: 0;
 		}
 		.text {
-			padding: 35px 40px;
+			padding: 35px 40px 0 40px;
+			@media only screen and (max-width: 767px) {
+				padding: 20px 30px 0 30px;
+			}
+			@media only screen and (max-width: 992px) {
+				padding: 20px 30px 15px 30px;
+			}
 		}
 	}
 }

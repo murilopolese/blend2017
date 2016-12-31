@@ -13,7 +13,7 @@
 			</h2>
 
 			<div id="modal-speaker" class="modal">
-					<div class="col s12 l5 image">
+					<div class="col s12 l5 image hide-on-med-and-down">
 						<img src="/images/justin.jpg" alt="Justin Cone" />
 					</div>
 					<div class="col s12 l7 text">
@@ -22,8 +22,6 @@
 						<p>
 							Justin Cone is the co-founder of Motionographer, the F5 festival
 							and The Motion Awards by Motionographer.
-						</p>
-						<p>
 							Justin was formerly the Director of Special Operations for Psyop
 							and has worked in various capacities at NBC-Universal, Adobe, Apple
 							and SCAD during his 15-year career. He has spoken around the world
@@ -61,7 +59,7 @@
 	<div class="row">
 
 		{{#each lineup}}
-			<div class="col s12 l3 item">
+			<div class="col s12 m6 l3 item">
 				<a href="#modal{{@index}}" class="thumbnail">
 					<img src="{{thumbnail_blue.url}}" alt="{{name}}" />
 					<img src="{{thumbnail_color.url}}" alt="{{name}}" class="thumbnail-color" />
@@ -72,7 +70,7 @@
 					</a>
 				</h2>
 				<div id="modal{{@index}}" class="modal">
-						<div class="col s12 l5 image">
+						<div class="col s12 l5 image hide-on-med-and-down">
 							<img src="{{thumbnail_color.url}}" alt="{{title}}" />
 						</div>
 						<div class="col s12 l7 text">
