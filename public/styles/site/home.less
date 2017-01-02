@@ -81,19 +81,31 @@
 		.mini-character {
 			position: relative;
 			width: 100%;
-			height: 100%/5;
+			height: 100% / 5;
 			.mini-character-container {
 				position: absolute;
 				bottom: 0;
+				left: 50%;
+    		transform: translate( -50%, 0 );
+				&::before {
+					content: '';
+					position: absolute;
+					background: #69b7ae;
+					left: 50%;
+	    		transform: translate( -50%, 0 );
+					bottom: -8px;
+					width: 45px;
+					height: 8px;
+					border-radius: 4px;
+					opacity: 0.5;
+				}
 			}
-			// border: solid 1px white;
 
 			.website-link {
 				display: inline-block;
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				// background: red;
 				opacity: 0.2;
 				top: 0;
 				left: 0;
