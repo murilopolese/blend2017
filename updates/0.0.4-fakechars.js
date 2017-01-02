@@ -52,13 +52,17 @@ var Character = {
 
 var chars = [];
 for( var i = 0; i < 200; i++ ) {
+	var website = '';
+	if( parseInt( Math.random() * 10 ) < 5 ) {
+		website = 'http://devblend2017.herokuapp.com';
+	}
 	Character.shuffle();
 	chars[i] = {
 		ticketId: parseInt( Math.random() * 999999 ),
 		name: 'Test',
 		surname: parseInt( Math.random() * 999999 ),
 		message: 'Hello World! How are you?',
-		website: 'http://devblend2017.herokuapp.com',
+		website: website,
 		blockAmount: Character.amount,
 		block1Shape: Character.blocks[0].shape,
 		block1Color: Character.blocks[0].color,
