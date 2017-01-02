@@ -99,6 +99,28 @@
 					border-radius: 4px;
 					opacity: 0.5;
 				}
+
+				&:hover {
+					z-index: 999;
+					.mini-character-tooltip {
+						display: block;
+					}
+				}
+				.mini-character-tooltip {
+					position: absolute;
+					display: none;
+					width: 200px;
+					right: -225px;
+					top: 50%;
+					transform: translate( 0, -50% );
+					padding: 25px;
+					background: @blue;
+					color: @light-blue;
+					p {
+						margin: 0;
+						font-size: 14px;
+					}
+				}
 			}
 
 			.website-link {
@@ -110,7 +132,6 @@
 				top: 0;
 				left: 0;
 			}
-
 
 			@big: 60px;
 			@medium: 40px;
@@ -149,7 +170,6 @@
 					}
 				}
 			}
-
 
 			@big: 30px;
 			@medium: 20px;
@@ -256,6 +276,11 @@
 			}
 
 		}
+
+	}
+
+	.col-right .mini-character .mini-character-tooltip {
+		left: -225px;
 	}
 
 	.modal {
