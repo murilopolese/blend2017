@@ -1,9 +1,3 @@
-$( window ).on( 'load', function() {
-	$('.carousel.carousel-slider').carousel({
-		full_width: true
-	});
-} )
-
 $(document).ready(function() {
 	$('.modal').modal({
 		dismissible: true,
@@ -16,6 +10,19 @@ $(document).ready(function() {
 		$( '.nav' ).toggleClass( 'visible-mobile' );
 	})
 
+	$('.owl-carousel').owlCarousel({
+		items: 1,
+		loop: true,
+		nav: true,
+		autoplay: true,
+		autoplayHoverPause: true,
+		dots: false,
+		navText: ['','']
+	});
+
+	// $('.carousel.carousel-slider').carousel({
+	// 	full_width: true
+	// });
 
 	function shuffle(a) {
 		var j, x, i;
