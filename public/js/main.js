@@ -7,7 +7,9 @@ $( window ).on( 'load', function() {
 $(document).ready(function() {
 	$('.modal').modal({
 		dismissible: true,
-    opacity: 0.8
+    opacity: 0.8,
+		in_duration: 0, // Transition in duration
+		out_duration: 0
 	});
 
 	$( '.button-collapse' ).click( function() {
