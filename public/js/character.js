@@ -193,9 +193,6 @@ $( document ).ready( function() {
 			}
 		}
 
-		console.log( Character.website );
-		return;
-
 		$.post( '/saveCharacter', {
 			ticketId: Character.ticketId,
 			name: Character.name,
