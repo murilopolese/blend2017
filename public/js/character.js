@@ -186,10 +186,15 @@ $( document ).ready( function() {
 
 		Character.website = $( 'input[name="website"]' ).val();
 
-		var prefix = 'http';
-		if ( Character.website.substr(0, prefix.length) !== prefix ) {
-		    Character.website = prefix + '://' + Character.website;
+		if( Character.website != '' ) {
+			var prefix = 'http';
+			if ( Character.website.substr(0, prefix.length) !== prefix ) {
+				Character.website = prefix + '://' + Character.website;
+			}
 		}
+
+		console.log( Character.website );
+		return;
 
 		$.post( '/saveCharacter', {
 			ticketId: Character.ticketId,
