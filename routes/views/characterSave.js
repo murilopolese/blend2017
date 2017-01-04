@@ -22,7 +22,7 @@ exports = module.exports = function( req, res ) {
 		surname: req.body.surname,
 		email: req.body.surname,
 		message: req.body.message,
-		website: req.body.websiste,
+		website: req.body.website,
 
 		blockAmount: req.body.blockAmount,
 		block1Shape: req.body.blocks[0].shape,
