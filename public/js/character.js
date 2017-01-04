@@ -182,15 +182,19 @@ $( document ).ready( function() {
 		Character.ticketId = $( 'input[name="ticketId"]' ).val();
 		Character.name = $( 'input[name="name"]' ).val();
 		Character.surname = $( 'input[name="surname"]' ).val();
-		Character.email = $( 'input[name="email"]' ).val();
 		Character.message = $( 'input[name="message"]' ).val();
+
 		Character.website = $( 'input[name="website"]' ).val();
+
+		var prefix = 'http';
+		if ( Character.website.substr(0, prefix.length) !== prefix ) {
+		    Character.website = prefix + '://' + Character.website;
+		}
 
 		$.post( '/saveCharacter', {
 			ticketId: Character.ticketId,
 			name: Character.name,
 			surname: Character.surname,
-			email: Character.email,
 			message: Character.message,
 			website: Character.website,
 
