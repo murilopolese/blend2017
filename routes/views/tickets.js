@@ -1,7 +1,6 @@
 var keystone = require('keystone');
 
 exports = module.exports = function (req, res) {
-
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
@@ -10,5 +9,5 @@ exports = module.exports = function (req, res) {
 	locals.section = 'tickets';
 
 	// Render the view
-	view.render('tickets');
+	res.redirect( process.env.TICKET_URL || 'https://www.picatic.com/blend2017' );
 };
