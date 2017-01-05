@@ -65,19 +65,40 @@ $(document).ready(function() {
 					if( selectedChars[ j ].website ) {
 						websiteLink ='<a class="website-link" target="_blank" href="' + selectedChars[ j ].website + '"></a>';
 					}
-					$(this).append(
-						'<div class="mini-character">' +
-						'<div class="mini-character-container">' +
-						'<div class="block block0 ' + selectedChars[ j ].blocks[ 0 ].shape + '-block ' + selectedChars[ j ].blocks[ 0 ].size + '-block ' + selectedChars[ j ].blocks[ 0 ].color + '-block ' + selectedChars[ j ].blocks[ 0 ].texture + '-block"></div>' +
-						'<div class="block block1 ' + selectedChars[ j ].blocks[ 1 ].shape + '-block ' + selectedChars[ j ].blocks[ 1 ].size + '-block ' + selectedChars[ j ].blocks[ 1 ].color + '-block ' + selectedChars[ j ].blocks[ 1 ].texture + '-block"></div>' +
-						'<div class="block block2 ' + selectedChars[ j ].blocks[ 2 ].shape + '-block ' + selectedChars[ j ].blocks[ 2 ].size + '-block ' + selectedChars[ j ].blocks[ 2 ].color + '-block ' + selectedChars[ j ].blocks[ 2 ].texture + '-block"></div>' +
-						websiteLink +
-						'<div class="mini-character-tooltip">' +
-						'<p><strong>' + selectedChars[ j ].name + ' ' + selectedChars[ j ].surname + '</strong></p>' +
-						'<p>' + selectedChars[ j ].message + '</p>' +
-						'</div>' +
-						'</div>' +
-						'</div>')
+
+					var html = '<div class="mini-character">' +
+					'<div class="mini-character-container">';
+
+					if (selectedChars[ j ].blocks[ 0 ].hidden == "false") {
+						html += '<div class="block block0 ' + selectedChars[ j ].blocks[ 0 ].shape + '-block '
+						+ selectedChars[ j ].blocks[ 0 ].size + '-block '
+						+ selectedChars[ j ].blocks[ 0 ].color + '-block '
+						+ selectedChars[ j ].blocks[ 0 ].texture + '-block"></div>';
+					}
+					if (selectedChars[ j ].blocks[ 1 ].hidden == "false") {
+						html += '<div class="block block1 ' + selectedChars[ j ].blocks[ 1 ].shape + '-block '
+						+ selectedChars[ j ].blocks[ 1 ].size + '-block '
+						+ selectedChars[ j ].blocks[ 1 ].color + '-block '
+						+ selectedChars[ j ].blocks[ 1 ].texture + '-block"></div>';
+					}
+					if (selectedChars[ j ].blocks[ 2 ].hidden == "false") {
+						html += '<div class="block block2 ' + selectedChars[ j ].blocks[ 2 ].shape + '-block '
+						+ selectedChars[ j ].blocks[ 2 ].size + '-block '
+						+ selectedChars[ j ].blocks[ 2 ].color + '-block '
+						+ selectedChars[ j ].blocks[ 2 ].texture + '-block"></div>'
+					}
+
+					html += websiteLink +
+
+					'<div class="mini-character-tooltip">' +
+					'<p><strong>' + selectedChars[ j ].name + ' ' + selectedChars[ j ].surname + '</strong></p>' +
+					'<p>' + selectedChars[ j ].message + '</p>' +
+					'</div>' +
+
+					'</div>' +
+					'</div>';
+
+					$(this).append( html );
 				} else {
 					$(this).append(
 						'<div class="mini-character"></div>'
