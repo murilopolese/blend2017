@@ -10,8 +10,9 @@ exports = module.exports = function (req, res) {
 	// item in the header navigation.
 	locals.section = 'lineup';
 
-	Lineup.model.find().exec()
+	Lineup.model.find()
 	.sort( 'name' )
+	.exec()
 	.then(
 		function( lineup ) {
 			locals.lineup = lineup;
