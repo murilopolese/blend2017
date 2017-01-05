@@ -11,6 +11,7 @@ exports = module.exports = function (req, res) {
 	locals.section = 'lineup';
 
 	Lineup.model.find().exec()
+	.sort( 'name' )
 	.then(
 		function( lineup ) {
 			locals.lineup = lineup;
