@@ -1,7 +1,9 @@
 $( document ).ready( function() {
 	console.log( 'character builder' );
 	$('.modal').modal({
-		dismissable: false
+		dismissable: false,
+		in_duration: 0, // Transition in duration
+		out_duration: 0
 	});
 
 	// Wooden character model
