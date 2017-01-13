@@ -13,15 +13,9 @@
 						<a href="{{link}}">{{label}}</a>
 					</li>
 				{{else}}
-					{{#ifeq class "tickets"}}
-						<li class="nav nav-{{class}}">
-							<a href="{{link}}" target="_blank">{{label}}</a>
-						</li>
-					{{else}}
-						<li class="nav nav-{{class}}">
-							<a href="{{link}}">{{label}}</a>
-						</li>
-					{{/ifeq}}
+					<li class="nav nav-{{class}}">
+						<a href="{{link}}">{{label}}</a>
+					</li>
 				{{/ifeq}}
 			{{/each}}
 

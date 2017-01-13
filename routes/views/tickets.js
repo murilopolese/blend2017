@@ -9,5 +9,6 @@ exports = module.exports = function (req, res) {
 	locals.section = 'tickets';
 
 	// Render the view
-	res.redirect( process.env.TICKET_URL || 'https://www.picatic.com/blend2017' );
+	// res.redirect( process.env.TICKET_URL || 'https://www.picatic.com/blend2017' );
+	view.render( 'tickets' );
 };
