@@ -110,8 +110,8 @@ $(document).ready(function() {
 
 	}
 
-	if( $( '.home-container' ).size() ) {
-		console.log( 'home page' );
+	if( $( '.home-container' ).size() || $( '.thankyou-container' ).size() ) {
+		console.log( 'home page', $( '.home-container' ).size(), 'thank you', $( '.thankyou-container' ).size() );
 		refresh();
 		$( '.refresh' ).click( function() {
 			refresh();
