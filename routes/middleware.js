@@ -23,25 +23,20 @@ var SocialMedia = keystone.list('SocialMedia');
 exports.initLocals = function (req, res, next) {
 	res.locals.user = req.user;
 	// Get navigation links
-	Navigation.model.find().sort('order').exec()
-		.then(
-			function( navs ) {
-				res.locals.navLinks = navs;
-				return SocialMedia.model.find().exec();
-			},
-			function( err ) {
-				next( err );
-			}
-		)
-		// Get social media links
-		.then(
-			function( social ) {
-				res.locals.navSocial = social;
-				next();
-			}, function( err ) {
-				next( err )
-			}
-		)
+	Promise.all([
+		Navigation.model.find().sort('order').exec(),
+		SocialMedia.model.find().exec()
+	])
+	.then(
+		function( response ) {
+			res.locals.navLinks = response[0];
+			res.locals.navSocial = response[1];
+			next()
+		},
+		function( err ) {
+			next( err );
+		}
+	);
 };
 
 
