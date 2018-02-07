@@ -1,0 +1,74 @@
+{{!< simplified}}
+<div class="home-container">
+
+	<div class="col col-left">
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+	</div>
+
+	<div class="col col-middle center-align">
+		<div class="valign-wrapper">
+			<div class="valign-center">
+				<h1>THANK YOU</h1>
+				<h2>Blend 2017 was awesome because of you</h2>
+				<p><img src="/images/logo-b-02.gif" width="104" alt="Blend" /></p>
+				<p class="description">
+					Blend is a conference-style party in Vancouver for our motion, design
+					& animation family. Because when we get together,
+					<a class="bold" target="_blank" href="#">amazing things happen</a>.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col col-right">
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+		<div class="character-column"></div>
+	</div>
+
+</div>
+
+<script>
+	var characters = [
+		{{#each characters}}
+		{
+			"name" : "{{name}}",
+			"surname" : "{{surname}}",
+			"website" : "{{website}}",
+			"message" : "{{message}}",
+			"blockAmount" : "{{blockAmount}}",
+			"blocks" : [
+				{
+					"shape": "{{block1Shape}}",
+					"color": "{{block1Color}}",
+					"size": "{{block1Size}}",
+					"texture": "{{block1Texture}}",
+					"hidden": "{{block1Hidden}}"
+				},
+				{
+					"shape": "{{block2Shape}}",
+					"color": "{{block2Color}}",
+					"size": "{{block2Size}}",
+					"texture": "{{block2Texture}}",
+					"hidden": "{{block2Hidden}}"
+				},
+				{
+					"shape": "{{block3Shape}}",
+					"color": "{{block3Color}}",
+					"size": "{{block3Size}}",
+					"texture": "{{block3Texture}}",
+					"hidden": "{{block3Hidden}}"
+				}
+			]
+		},
+		{{/each}}
+	]
+</script>
